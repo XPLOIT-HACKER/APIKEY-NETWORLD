@@ -1,0 +1,8 @@
+# Exclude the file containing actual API keys
+config.js
+
+# Also exclude common files you don't want in GitHub
+.DS_Store
+node_modules/
+.env
+*.log
