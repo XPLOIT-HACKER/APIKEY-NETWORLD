@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>APIKEY-NETWORK SOURCE | ROY_EXPLOIT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔐</text></svg>">
+    <meta name="description" content="APIKEY-NETWORK SOURCE - Legitimate API Keys for Development">
+    <meta name="author" content="roy_exploit">
+    <meta name="copyright" content="MADE BY roy_exploit copyright legitimate source">
+    <style>
+        /* Loading animation */
+        .loading-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        
+        .loading-logo {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+        
+        .loading-text {
+            color: #0af;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 20px;
+            animation: glitch 3s infinite;
+        }
+        
+        .loading-bar {
+            width: 300px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        
+        .loading-progress {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #0af, #0ff);
+            border-radius: 2px;
+            animation: loading 6s linear forwards;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            2% { transform: translate(-2px, 2px); }
+            4% { transform: translate(-2px, -2px); }
+            6% { transform: translate(2px, 2px); }
+            8% { transform: translate(2px, -2px); }
+            10% { transform: translate(0); }
+            100% { transform: translate(0); }
+        }
+        
+        @keyframes loading {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-container" id="loadingScreen">
+        <div class="loading-logo">
+            <!-- Unique Logo SVG -->
+            <svg viewBox="0 0 200 200" width="150" height="150">
+                <defs>
+                    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#FF2E63" />
+                        <stop offset="50%" stop-color="#08D9D6" />
+                        <stop offset="100%" stop-color="#252A34" />
+                    </linearGradient>
+                    <radialGradient id="glowGradient">
+                        <stop offset="0%" stop-color="#08D9D6" stop-opacity="0.8" />
+                        <stop offset="100%" stop-color="#252A34" stop-opacity="0" />
+                    </radialGradient>
+                    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="5" result="blur" />
+                        <feMerge>
+                            <feMergeNode in="blur" />
+                            <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                    </filter>
+                </defs>
+                
+                <!-- Outer hexagon -->
+                <polygon points="100,20 170,60 170,140 100,180 30,140 30,60" 
+                        fill="url(#logoGradient)" stroke="#08D9D6" stroke-width="3" filter="url(#glow)" />
+                
+                <!-- Inner hexagon -->
+                <polygon points="100,50 145,75 145,125 100,150 55,125 55,75" 
+                        fill="#252A34" stroke="#FF2E63" stroke-width="2" />
+                
+                <!-- Key hole -->
+                <circle cx="100" cy="100" r="25" fill="#252A34" stroke="#08D9D6" stroke-width="2" />
+                <rect x="95" y="60" width="10" height="40" fill="#08D9D6" />
+                
+                <!-- Circuit lines -->
+                <path d="M80,80 L120,80 L120,120 L80,120 Z" fill="none" stroke="#FF2E63" stroke-width="1.5" stroke-dasharray="5,3" />
+                <path d="M85,85 L115,85" stroke="#08D9D6" stroke-width="1.5" />
+                <path d="M85,115 L115,115" stroke="#08D9D6" stroke-width="1.5" />
+                
+                <!-- Animated dots -->
+                <circle cx="90" cy="90" r="2" fill="#08D9D6">
+                    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="110" cy="90" r="2" fill="#FF2E63">
+                    <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="90" cy="110" r="2" fill="#FF2E63">
+                    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="110" cy="110" r="2" fill="#08D9D6">
+                    <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+                
+                <!-- Glow effect -->
+                <ellipse cx="100" cy="100" rx="80" ry="40" fill="url(#glowGradient)" opacity="0.3" />
+            </svg>
+        </div>
+        <div class="loading-text">APIKEY-NETWORK SOURCE</div>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+        <div style="color: #888; margin-top: 20px; font-size: 0.9rem;">Initializing secure dashboard...</div>
+    </div>
+
+    <!-- Main Website -->
+    <div class="container" id="mainContent" style="display: none;">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <div class="brand-logo">
+                    <svg viewBox="0 0 200 200" width="70" height="70">
+                        <defs>
+                            <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FF2E63" />
+                                <stop offset="100%" stop-color="#08D9D6" />
+                            </linearGradient>
+                        </defs>
+                        <polygon points="100,20 170,60 170,140 100,180 30,140 30,60" 
+                                fill="url(#headerGradient)" opacity="0.9" stroke="#08D9D6" stroke-width="2" />
+                        <polygon points="100,50 145,75 145,125 100,150 55,125 55,75" 
+                                fill="#252A34" stroke="#FF2E63" stroke-width="1.5" />
+                        <circle cx="100" cy="100" r="15" fill="#252A34" stroke="#08D9D6" stroke-width="1.5" />
+                        <rect x="98" y="70" width="4" height="30" fill="#08D9D6" />
+                        <circle cx="95" cy="95" r="2" fill="#08D9D6" />
+                        <circle cx="105" cy="105" r="2" fill="#FF2E63" />
+                    </svg>
+                </div>
+                <div class="brand-name">
+                    <h1>APIKEY-NETWORK SOURCE</h1>
+                    <p class="tagline">SECURE • LEGITIMATE • UNLIMITED</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="mode-toggle">
+                    <button id="themeToggle" class="theme-btn">
+                        <i class="fas fa-moon"></i>
+                        <span>Dark Mode</span>
+                    </button>
+                </div>
+                <div class="copyright-notice">
+                    <span>MADE BY roy_exploit © 2026-2029</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Warning Banner -->
+        <div class="warning-banner">
+            <div class="warning-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="warning-content">
+                <h3><i class="fas fa-skull-crossbones"></i> SECURITY WARNING - USE RESPONSIBLY</h3>
+                <p>API KEYS ARE LOADED SECURELY FROM ENCRYPTED SOURCE. FOR LEGITIMATE DEVELOPMENT ONLY. DO NOT USE FOR HACKING OR MALICIOUS ACTIVITIES. BY ACCESSING THIS SITE, YOU AGREE TO USE THESE API KEYS RESPONSIBLY AND LEGALLY.</p>
+            </div>
+        </div>
+
+        <!-- Main Dashboard -->
+        <main class="dashboard">
+            <div class="dashboard-header">
+                <h2><i class="fas fa-key"></i> SECURE API KEY STORE</h2>
+                <p class="dashboard-subtitle">Keys loaded securely from encrypted source - Use Responsibly</p>
+                <div class="stats">
+                    <div class="stat-card">
+                        <i class="fas fa-infinity"></i>
+                        <span>Unlimited Keys</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Encrypted Source</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-user-secret"></i>
+                        <span>roy_exploit</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- API Keys Grid -->
+            <div class="api-keys-grid" id="apiKeysContainer">
+                <!-- API keys will be loaded dynamically from encrypted source -->
+                <div class="api-key-placeholder">
+                    <div class="placeholder-loading">
+                        <div class="spinner"></div>
+                        <p>Loading secure API keys from encrypted source...</p>
+                        <p class="small">This may take a few moments</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Panel -->
+            <div class="settings-panel">
+                <h3><i class="fas fa-cog"></i> SECURITY SETTINGS</h3>
+                <div class="settings-controls">
+                    <div class="setting-option">
+                        <label for="autoHideKeys">Auto-hide API Keys</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="autoHideKeys" checked>
+                            <span class="toggle-slider"></span>
+                        </div>
+                    </div>
+                    <div class="setting-option">
+                        <label for="copyNotifications">Show Copy Notifications</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="copyNotifications" checked>
+                            <span class="toggle-slider"></span>
+                        </div>
+                    </div>
+                    <div class="setting-option">
+                        <label for="encryptView">Enable Encryption View</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="encryptView">
+                            <span class="toggle-slider"></span>
+                        </div>
+                    </div>
+                    <div class="setting-option">
+                        <button id="exportKeys" class="btn-secondary">
+                            <i class="fas fa-download"></i> Export All Keys
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Notice -->
+            <div class="security-notice">
+                <h4><i class="fas fa-lock"></i> SECURITY INFORMATION</h4>
+                <p>API keys are loaded from an encrypted source file that is NOT included in the GitHub repository. The actual API keys are only visible on the live website deployment.</p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>APIKEY-NETWORK SOURCE</h3>
+                    <p>Created by <strong>roy_exploit</strong> | Copyright 2026-2029</p>
+                    <p class="hacker-tag">[HACKER] SUPPORT - RESPONSIBLE USE ONLY</p>
+                </div>
+                <div class="footer-warning">
+                    <p><i class="fas fa-radiation-alt"></i> <strong>IMPORTANT:</strong> API keys are NOT visible in GitHub repository source code. They are loaded securely on website view only.</p>
+                    <p class="small-text">Do not share actual API keys. Report suspicious activity immediately.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Notification System -->
+    <div id="notification" class="notification"></div>
+
+    <!-- API Key Detail Modal -->
+    <div class="modal" id="apiDetailModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalApiName">API Key Details</h3>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="api-info">
+                    <div class="api-description" id="modalApiDescription">
+                        Loading description...
+                    </div>
+                    <div class="api-key-display">
+                        <label>API Key (Encrypted Source):</label>
+                        <div class="key-container">
+                            <input type="password" id="modalApiKeyValue" readonly class="key-input">
+                            <button class="key-action-btn" id="toggleModalKey">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="key-action-btn copy-btn" data-key="" id="copyModalKey">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <div class="key-source">
+                            <i class="fas fa-shield-alt"></i> Loaded from secure encrypted source
+                        </div>
+                    </div>
+                    <div class="api-usage">
+                        <h4><i class="fas fa-code"></i> Usage Example:</h4>
+                        <pre id="modalApiUsage">// Example code will appear here</pre>
+                    </div>
+                    <div class="api-limits">
+                        <h4><i class="fas fa-tachometer-alt"></i> Rate Limits & Restrictions:</h4>
+                        <p id="modalApiLimits">Loading limit information...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="closeDetailModal">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- config.js is loaded dynamically - NOT in GitHub -->
+</body>
+</html>
